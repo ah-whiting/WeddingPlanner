@@ -1,0 +1,53 @@
+@model List<Wedding>
+
+
+  <div class="container p-5">
+    <div class="row">
+      <div class="col-8">
+        <h2>Look at all the Love</h2>
+      </div>
+      <div class="col-4">
+        <a class="btn btn-secondary" href="/logout">Log Out</a>
+      </div>
+      <div class="col-12 p-3">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Wedding</th>
+              <th>Date</th>
+              <th>Guests</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+        
+                @foreach (var wed in @Model) 
+                {
+                    <tr>
+                    <td scope="row"><a href="/weddings/@wed.WeddingId">@wed.Wedder1 & @wed.Wedder2</a></td>
+                    <td>@wed.Date.Date</td>
+                    <td>@wed.GuestList.Count</td>
+                    @if(wed.UserId == ViewBag.User)
+                    {
+                        <td><a class="btn btn-danger" href="/weddings/@wed.WeddingId/delete">Delete</a></td>
+                    }
+                    else if (wed.GuestList.Select(rsvp => rsvp.Guest.UserId).ToList().Contains(ViewBag.User))
+                    {
+                        <td><a class="btn btn-warning" href="/weddings/@wed.WeddingId/rsvp/delete">UN-RSVP</a></td>
+                    }
+                    else 
+                    {
+                        <td><a class="btn btn-success" href="/weddings/@wed.WeddingId/rsvp">RSVP</a></td>
+
+                    }
+                    </tr>
+                }
+
+          </tbody>
+        </table>
+    </div>
+    <div class="col-10 text-end justify-content-end text-right justify-content-right">
+        <a class="btn btn-warning" href="/weddings/new">New Wedding</a>
+    </div>
+    </div>
+  </div>

@@ -1,0 +1,25 @@
+@model Wedding
+
+<div class="container p-5">
+  <div class="row">
+    <div class="col-8">
+      <h2>@Model.Wedder1 and @Model.Wedder2's Wedding</h2>
+    </div>
+    <div class="col-4">
+      <a class="btn btn-secondary" href="/dashboard">Dashboard</a>
+      <a class="btn btn-secondary" href="/logout">Log Out</a>
+    </div>
+    <div class="col p-5"><h4>@Model.Date.Date</h4></div>
+  </div>
+  <div class="row p-5">
+      <div class="col-6">
+        <h4>Guests:</h4>
+        <ul>
+            @foreach (var rsvp in @Model.GuestList)
+            {
+                <li><h5>@rsvp.Guest.FirstName @rsvp.Guest.LastName</h5></li>
+            }
+        </ul>
+      </div>
+  </div>
+</div>
