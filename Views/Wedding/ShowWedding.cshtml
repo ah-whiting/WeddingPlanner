@@ -9,7 +9,7 @@
       <a class="btn btn-secondary" href="/dashboard">Dashboard</a>
       <a class="btn btn-secondary" href="/logout">Log Out</a>
     </div>
-    <div class="col p-5"><h4>@Model.Date.Date</h4></div>
+    <div class="col p-5"><h4>@Model.Date.Date.ToString("dddd MMMM dd yyy")</h4></div>
   </div>
   <div class="row p-5">
       <div class="col-6">
@@ -20,6 +20,9 @@
                 <li><h5>@rsvp.Guest.FirstName @rsvp.Guest.LastName</h5></li>
             }
         </ul>
+      </div>
+      <div class="col-6">
+          <h3 class="p-4"> Address: @Model.Address</h3>
       </div>
   </div>
 </div>

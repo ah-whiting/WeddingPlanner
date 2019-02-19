@@ -25,7 +25,7 @@
                 {
                     <tr>
                     <td scope="row"><a href="/weddings/@wed.WeddingId">@wed.Wedder1 & @wed.Wedder2</a></td>
-                    <td>@wed.Date.Date</td>
+                    <td>@wed.Date.Date.ToString("dddd MMMM dd yyy")</td>
                     <td>@wed.GuestList.Count</td>
                     @if(wed.UserId == ViewBag.User)
                     {

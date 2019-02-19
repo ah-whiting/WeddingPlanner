@@ -12,4 +12,4 @@ msbuild.log
 msbuild.err
 msbuild.wrn
 migrations/
-bootstrap/dist/
+bootstrap/dist/css
